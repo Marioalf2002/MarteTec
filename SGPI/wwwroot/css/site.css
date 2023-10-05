@@ -14,10 +14,10 @@ body {
 .background {
     width: 100%;
     height: 100vh;
-    background: url('../img/fondo3.jpg') no-repeat;
+    background: url('../img/fondo5.png') no-repeat;
     background-size: cover;
     background-position: center;
-    filter: blur(10px);
+    filter: blur(5px);
 }
 
 .header {
@@ -109,12 +109,17 @@ body {
     transform: translate(-50%, -50%);
     width: 80%;
     height: 75%;
-    background: url('../img/fondo3.jpg') no-repeat;
+    background: url('../img/fondo7.jpg') no-repeat;
     background-size: cover;
     background-position: center;
     border-radius: 10px;
     margin-top: 20px;
+    box-shadow: 20px 20px 6px rgb(0, 0, 0, .5);
 }
+
+    /*.container:hover{
+        transform:
+    }*/
 
     .container .content {
         position: absolute;
@@ -155,7 +160,7 @@ body {
 
 .text-sci p {
     margin: 20px 0;
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 600;
     font-style: italic;
     color: #FEB437;
@@ -331,5 +336,20 @@ body {
 
     .login-register p a:hover {
         text-decoration: underline;
+        color: #FEB437;
+    }
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px;
+    text-align: center;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+    .footer .politica span {
         color: #FEB437;
     }
