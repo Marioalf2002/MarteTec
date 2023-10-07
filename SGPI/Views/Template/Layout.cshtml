@@ -1,3 +1,169 @@
-﻿<div class="render">
-	@RenderBody()
-</div>
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--ICONS-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!--CSS-->
+    <link rel="stylesheet" href="~/css/site.css">
+
+    <!--FAVICON-->
+    <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon">
+
+    <!-- TITULO PAGINA -->
+    <title>Sidebar</title>
+</head>
+<body>
+
+    <!--MENU-->
+    <div class="contenedor">
+        <div class="sidebar active">
+            <div class="menu-btn active">
+                <i class="bx bx-chevron-left"></i>
+            </div>
+
+            <div class="head">
+                <div class="user-img">
+                    <img src="img/logo-01.png" alt="">
+                </div>
+                <div class="user-details">
+                    <p class="title">Web Developer</p>
+                    <p class="name">Marte~Tec</p>
+                </div>
+            </div>
+            <div class="nav">
+                <div class="menu">
+                    <!-- <p class="title">Main</p> -->
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <i class="icon bx bxs-castle"></i>
+                                <span class="text">Inicio</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="icon bx bx-user"></i>
+                                <span class="text">Usuario</span>
+                                <i class="arrow bx bx-chevron-down"></i>
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="#">
+                                        <span class="text">Cuenta</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="text">Notas</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- <li>
+                          <a href="#">
+                            <i class="icon bx bx-calendar"></i>
+                            <span class="text">Schedules</span>
+                          </a>
+                        </li> -->
+                        <li>
+                            <a href="#">
+                                <i class="icon bx bx-bar-chart-alt-2"></i>
+                                <span class="text">Analitica</span>
+                                <i class="arrow bx bx-chevron-down"></i>
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="#">
+                                        <span class="text">Earnings</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="text">Funds</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="text">Declines</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="text">Payouts</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="icon bx bx-cog"></i>
+                                <span class="text">Ajustes</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="menu">
+                <!-- <p class="title">Account</p> -->
+                <ul>
+                    <li>
+                        <a href="#">
+                            <i class="icon bx bx-info-circle"></i>
+                            <span class="text">Help</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="icon bx bx-log-out"></i>
+                            <span class="text">Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!--REDNER-->
+    <div class="render">
+        @RenderBody()
+    </div>
+
+    <!--FOOTER-->
+    <footer class="border-top footer text-muted">
+        <div class="politica">
+            <span>&copy;</span> 2023 - <span>Marte~Tec</span> - Todos los derechos reservados
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"
+            integrity="sha512-8Z5++K1rB3U+USaLKG6oO8uWWBhdYsM3hmdirnOEWp8h2B1aOikj5zBzlXs8QOrvY9OxEnD2QDkbSKKpfqcIWw=="
+            crossorigin="anonymous"></script>
+    <script src="~/js/site.js"></script>
+
+    <script>
+        $(".menu > ul > li").click(function (e) {
+            //Remove Active From Already Active
+            $(this).siblings().removeClass("active");
+            //Add Active To Clicked
+            $(this).toggleClass("active");
+            //If Has Sub Menu Open It
+            $(this).find("ul").slideToggle();
+            //Close Other Sub Menu If Anu Open
+            $(this).siblings().find("ul").slideUp();
+            //Remove Active Class Of Sub Menu Items
+            $(this).siblings().find("ul").find("li").removeClass("active");
+        });
+
+        $(".menu-btn").click(function () {
+            $(".sidebar").toggleClass("active");
+            $(".menu-btn").toggleClass("active");
+        })
+    </script>
+</body>
+</html>

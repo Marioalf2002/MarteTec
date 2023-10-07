@@ -1,18 +1,4 @@
-﻿//INICIO DE SESION
-const logregBox = document.querySelector('.logreg-box');
-const loginLink = document.querySelector('.login-link');
-const registerLink = document.querySelector('.register-link');
-
-registerLink.addEventListener('click', () => {
-    logregBox.classList.add('active');
-});
-
-loginLink.addEventListener('click', () => {
-    logregBox.classList.remove('active');
-});
-
-//MENU LATERAL
-$(".menu > ul > li").click(function (e) {
+$(".menu > ul > li").click(function (e){
     //Remove Active From Already Active
     $(this).siblings().removeClass("active");
     //Add Active To Clicked
@@ -25,7 +11,8 @@ $(".menu > ul > li").click(function (e) {
     $(this).siblings().find("ul").find("li").removeClass("active");
 });
 
-$(".menu-btn").click(function () {
+
+$(".menu-btn").click(function (){
     $(".sidebar").toggleClass("active");
     $(".menu-btn").toggleClass("active");
     $(".contenedor").toggleClass("active");
