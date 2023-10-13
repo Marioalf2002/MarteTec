@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- FUENTE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     
     <!-- ICONOS -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -12,117 +17,244 @@
     <link rel="stylesheet" href="style.css" />
 
     <!-- TITULO PAGINA -->
-    <title>Sidebar</title>
+    <title>Diseño~DashBoard</title>
   </head>
   <body>
 
-    <div class="contenedor">
-      <div class="sidebar active">
-          <div class="menu-btn active">
-              <i class="bx bx-chevron-left"></i>
-          </div>
+    <!--MENU LATERAL-->
+    <div class="menu_lateral activar">
+        <div class="menu-boton activar">
+            <i class="bx bxs-chevron-left"></i>
+        </div>
 
-          <div class="head">
-              <div class="user-img">
-                  <img src="img/logo-01.png" alt="">
-              </div>
-              <div class="user-details">
-                  <p class="title">Web Developer</p>
-                  <p class="name">Marte~Tec</p>
-              </div>
-          </div>
-          <div class="nav">
-              <div class="menu">
-                  <!-- <p class="title">Main</p> -->
-                  <ul>
-                      <li>
-                          <a href="#">
-                              <i class="icon bx bxs-castle"></i>
-                              <span class="text">Inicio</span>
-                          </a>
-                      </li>
-                      <li>
-                          <a href="#">
-                              <i class="icon bx bx-user"></i>
-                              <span class="text">Usuario</span>
-                              <i class="arrow bx bx-chevron-down"></i>
-                          </a>
-                          <ul class="sub-menu">
-                              <li>
-                                  <a href="#">
-                                      <span class="text">Cuenta</span>
-                                  </a>
-                              </li>
-                              <li>
-                                  <a href="#">
-                                      <span class="text">Notas</span>
-                                  </a>
-                              </li>
-                          </ul>
-                      </li>
-                      <!-- <li>
-                        <a href="#">
-                          <i class="icon bx bx-calendar"></i>
-                          <span class="text">Schedules</span>
+        <div class="cabecera">
+            <div class="img-usuario">
+                <img src="img/logo-01.png" alt="">
+            </div>
+            <div class="detalles-usuario">
+                <p class="titulo">Web Developer</p>
+                <p class="nombre">Marte~Tec</p>
+            </div>
+        </div>
+        <div class="opciones">
+            <div class="menu">
+                <p class="titulo">Main</p>
+                <ul>
+                    <li>
+                        <a href="index.html">
+                            <i class="icono bx bxs-castle"></i>
+                            <span class="texto">Inicio</span>
                         </a>
-                      </li> -->
-                      <li>
-                          <a href="#">
-                              <i class="icon bx bx-bar-chart-alt-2"></i>
-                              <span class="text">Analitica</span>
-                              <i class="arrow bx bx-chevron-down"></i>
-                          </a>
-                          <ul class="sub-menu">
-                              <li>
-                                  <a href="#">
-                                      <span class="text">Earnings</span>
-                                  </a>
-                              </li>
-                              <li>
-                                  <a href="#">
-                                      <span class="text">Funds</span>
-                                  </a>
-                              </li>
-                              <li>
-                                  <a href="#">
-                                      <span class="text">Declines</span>
-                                  </a>
-                              </li>
-                              <li>
-                                  <a href="#">
-                                      <span class="text">Payouts</span>
-                                  </a>
-                              </li>
-                          </ul>
-                      </li>
-                      <li>
-                          <a href="#">
-                              <i class="icon bx bx-cog"></i>
-                              <span class="text">Ajustes</span>
-                          </a>
-                      </li>
-                  </ul>
-              </div>
-          </div>
-          <div class="menu">
-              <!-- <p class="title">Account</p> -->
-              <ul>
-                  <li>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="icono bx bx-user"></i>
+                            <span class="texto">Usuario</span>
+                            <i class="arrow bx bxs-chevron-down"></i>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="admin.html">
+                                    <span class="texto">Administrador</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="texto">Coordinador</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="texto">Estudiante</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- <li>
                       <a href="#">
-                          <i class="icon bx bx-info-circle"></i>
-                          <span class="text">Help</span>
+                        <i class="icono bx bx-calendar"></i>
+                        <span class="texto">Schedules</span>
                       </a>
-                  </li>
-                  <li>
-                      <a href="#">
-                          <i class="icon bx bx-log-out"></i>
-                          <span class="text">Logout</span>
-                      </a>
-                  </li>
-              </ul>
-          </div>
-      </div>
-  </div>
+                    </li> -->
+                    <!-- <li>
+                        <a href="#">
+                            <i class="icono bx bx-bar-chart-alt-2"></i>
+                            <span class="texto">Analitica</span>
+                            <i class="arrow bx bxs-chevron-down"></i>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="#">
+                                    <span class="texto">Earnings</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="texto">Funds</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="texto">Declines</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="texto">Payouts</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="icono bx bx-cog"></i>
+                            <span class="texto">Ajustes</span>
+                        </a>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+        <div class="menu">
+            <p class="titulo">Account</p>
+            <ul>
+                <li>
+                    <a href="#">
+                        <i class="icono bx bx-info-circle"></i>
+                        <span class="texto">Help</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icono bx bx-log-out"></i>
+                        <span class="texto">Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div class="dashboard-section">
+        <div class="dashboard-content">
+            <!-- <span class="texto">DashBoard</span> -->
+
+            <div class="dashboard-container">
+                <div class="dashboard-contenido">
+                    <h2 class="logo">
+                        <img src="../img/logo_nombre.png" alt="">
+                        <!--Marte~Tec-->
+                    </h2>
+
+                    <div class="texto-sci">
+                        <h2>Bienvenido!<br><span>A Nuestro Proyecto</span></h2>
+
+                        <p>"Un ejército es tan fuerte, como su eslabón más débil"</p>
+
+                        <div class="social-icons">
+                            <a href="#"><i class='bx bxl-facebook'></i></a>
+                            <a href="#"><i class='bx bxl-instagram'></i></a>
+                            <a href="#"><i class='bx bxl-twitter'></i></a>
+                            <a href="#"><i class='bx bxl-github'></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="login-box">
+                    <div class="formulario-box login">
+                        <form action="#">
+                            <h2>Iniciar Sesion</h2>
+
+                            <div class="entrada-box">
+                                <span class="icono">
+                                    <i class='bx bxs-envelope'></i>
+                                </span>
+                                <input type="email" required autocomplete="off">
+                                <label>Email</label>
+                            </div>
+
+                            <div class="entrada-box">
+                                <span class="icono">
+                                    <i class='bx bxs-lock-alt'></i>
+                                </span>
+                                <input type="password" required autocomplete="off">
+                                <label>Password</label>
+                            </div>
+
+                            <div class="recordar-forgot">
+                                <label>
+                                    <input type="checkbox">
+                                    Recordarme
+                                </label>
+                                <a href="#">¿Olvidaste Contraseña?</a>
+                            </div>
+
+                            <button type="submit" class="boton">Iniciar Sesión</button>
+
+                            <div class="login-register">
+                                <p>
+                                    ¿No tienes una Cuenta?
+                                    <a href="#" class="register-link">Registrase</a>
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="formulario-box register">
+                        <form action="#">
+                            <h2>Registrarse</h2>
+
+                            <div class="entrada-box">
+                                <span class="icono">
+                                    <i class='bx bxs-user'></i>
+                                </span>
+                                <input type="text" required autocomplete="off">
+                                <label>Nombre</label>
+                            </div>
+
+                            <div class="entrada-box">
+                                <span class="icono">
+                                    <i class='bx bxs-envelope'></i>
+                                </span>
+                                <input type="email" required autocomplete="off">
+                                <label>Email</label>
+                            </div>
+
+                            <div class="entrada-box">
+                                <span class="icono">
+                                    <i class='bx bxs-lock-alt'></i>
+                                </span>
+                                <input type="password" required autocomplete="off">
+                                <label>Password</label>
+                            </div>
+
+                            <div class="recordar-forgot">
+                                <label>
+                                    <input type="checkbox">
+                                    Acepta los Terminos y Condiciones
+                                </label>
+                            </div>
+
+                            <button type="submit" class="boton">Registrarse</button>
+
+                            <div class="login-register">
+                                <p>
+                                    ¿Si Tengo una Cuenta?
+                                    <a href="#" class="login-link">Iniciar Sesion</a>
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--FOOTER-->
+        <footer class="footer">
+            <div class="politica">
+                <span>&copy;</span> 2023 - <span>Marte~Tec</span> - Todos los derechos reservados
+            </div>
+        </footer>
+    </div>
+
     <!-- JS -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"

@@ -1,24 +1,187 @@
-﻿<!DOCTYPE html>
+﻿@{
+    ViewData["Title"] = "Inicio";
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - SGPI</title>
+
+    <!-- ICONOS -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!-- FUENTE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!--CSS-->
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/SGPI.styles.css" asp-append-version="true" />
+
+    <!--FAVICON-->
+    <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon">
+
+    <title>@ViewData["Title"] - SGPI</title>
 </head>
 <body>
-    <div class="render">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+
+    <!--MENU LATERAL-->
+    <div class="menu_lateral activar">
+        <div class="menu-boton activar">
+            <i class="bx bxs-chevron-left"></i>
+        </div>
+
+        <div class="cabecera">
+            <div class="img-usuario">
+                <img src="~/img/logo-01.png" alt="">
+            </div>
+            <div class="detalles-usuario">
+                <p class="titulo">Web Developer</p>
+                <p class="nombre">Marte~Tec</p>
+            </div>
+        </div>
+        <div class="opciones">
+            <div class="menu">
+                <p class="titulo">Main</p>
+                <ul>
+                    <li>
+                        <a asp-area="" asp-controller="Home" asp-action="Index">
+                            <i class="icono bx bxs-castle"></i>
+                            <span class="texto">Inicio</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="icono bx bx-user"></i>
+                            <span class="texto">Usuario</span>
+                            <i class="arrow bx bxs-chevron-down"></i>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a asp-area="" asp-controller="Home" asp-action="Admin">
+                                    <span class="texto">Administrador</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="texto">Coordinador</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="texto">Estudiante</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- <li>
+                      <a href="#">
+                        <i class="icono bx bx-calendar"></i>
+                        <span class="texto">Schedules</span>
+                      </a>
+                    </li> -->
+                    <!-- <li>
+                        <a href="#">
+                            <i class="icono bx bx-bar-chart-alt-2"></i>
+                            <span class="texto">Analitica</span>
+                            <i class="arrow bx bxs-chevron-down"></i>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="#">
+                                    <span class="texto">Earnings</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="texto">Funds</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="texto">Declines</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="texto">Payouts</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="icono bx bx-cog"></i>
+                            <span class="texto">Ajustes</span>
+                        </a>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+        <div class="menu">
+            <p class="titulo">Account</p>
+            <ul>
+                <li>
+                    <a href="#">
+                        <i class="icono bx bx-info-circle"></i>
+                        <span class="texto">Help</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icono bx bx-log-out"></i>
+                        <span class="texto">Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="copy">
-            &copy; 2023 - Marte~Tec - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <!-- DASHBOARD -->
+    <div class="dashboard-section">
+        <div class="dashboard-content">
+            <!--REDNER-->
+            <div class="render">
+                @RenderBody()
+            </div>
         </div>
-    </footer>
+
+        <!--FOOTER-->
+        <footer class="footer">
+            <div class="politica">
+                <span>&copy;</span> 2023 - <span>Marte~Tec</span> - Todos los derechos reservados
+            </div>
+        </footer>
+    </div>
+
+    <!-- JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"
+            integrity="sha512-8Z5++K1rB3U+USaLKG6oO8uWWBhdYsM3hmdirnOEWp8h2B1aOikj5zBzlXs8QOrvY9OxEnD2QDkbSKKpfqcIWw=="
+            crossorigin="anonymous"></script>
+
+    <script>
+        // MENU LATERAL
+        $(".menu > ul > li").click(function (e) {
+            //Remove activar From Already activar
+            $(this).siblings().removeClass("activar");
+            //Add activar To Clicked
+            $(this).toggleClass("activar");
+            //If Has Sub Menu Open It
+            $(this).find("ul").slideToggle();
+            //Close Other Sub Menu If Anu Open
+            $(this).siblings().find("ul").slideUp();
+            //Remove activar Class Of Sub Menu Items
+            $(this).siblings().find("ul").find("li").removeClass("activar");
+        });
+
+
+        $(".menu-boton").click(function () {
+            $(".menu_lateral").toggleClass("activar");
+            $(".menu-boton").toggleClass("activar");
+        })
+    </script>
 
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)

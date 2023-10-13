@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Inicio";
 }
 
 <!DOCTYPE html>
@@ -7,45 +7,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!--CSS-->
-    <link rel="stylesheet" href="~/css/site.css">
-    
-    <!--ICONS-->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    
-    <!--FAVICON-->
-    <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon">
 
     <!--TITULO PAGINA-->
     <title>@ViewData["Title"] - Marte~Tec</title>
 </head>
 <body>
-    <!--
-    <header class="header">
-        <nav class="navbar">
-            <a href="#">Inicio</a>
-            <a href="#">Acerca de</a>
-            <a href="#">Servicios</a>
-            <a href="#">Contact</a>
-        </nav>
-
-        <form action="#" class="search-bar">
-            <input type="text" placeholder="Buscar...">
-            <button type="submit"><i class='bx bx-search-alt-2'></i></button>
-        </form>
-    </header>
-    -->
-    <div class="background"></div>
-
-    <div class="container">
-        <div class="content">
+    <!-- DASHBOARD -->
+    <div class="dashboard-container">
+        <div class="dashboard-contenido">
             <h2 class="logo">
-                <img src="../img/logo_nombre.png" alt="">
+                <img src="~/img/logo_nombre.png" alt="">
                 <!--Marte~Tec-->
             </h2>
 
-            <div class="text-sci">
+            <div class="texto-sci">
                 <h2>Bienvenido!<br><span>A Nuestro Proyecto</span></h2>
 
                 <p>"Un ejército es tan fuerte, como su eslabón más débil"</p>
@@ -58,28 +33,28 @@
                 </div>
             </div>
         </div>
-        <div class="logreg-box">
-            <div class="form-box login">
+        <div class="login-box">
+            <div class="formulario-box login">
                 <form action="#">
                     <h2>Iniciar Sesion</h2>
 
-                    <div class="input-box">
-                        <span class="icon">
+                    <div class="entrada-box">
+                        <span class="icono">
                             <i class='bx bxs-envelope'></i>
                         </span>
                         <input type="email" required autocomplete="off">
                         <label>Email</label>
                     </div>
 
-                    <div class="input-box">
-                        <span class="icon">
+                    <div class="entrada-box">
+                        <span class="icono">
                             <i class='bx bxs-lock-alt'></i>
                         </span>
                         <input type="password" required autocomplete="off">
                         <label>Password</label>
                     </div>
 
-                    <div class="remember-forgot">
+                    <div class="recordar-forgot">
                         <label>
                             <input type="checkbox">
                             Recordarme
@@ -87,7 +62,7 @@
                         <a href="#">¿Olvidaste Contraseña?</a>
                     </div>
 
-                    <button type="submit" class="btn">Iniciar Sesión</button>
+                    <button type="submit" class="boton">Iniciar Sesión</button>
 
                     <div class="login-register">
                         <p>
@@ -98,42 +73,42 @@
                 </form>
             </div>
 
-            <div class="form-box register">
+            <div class="formulario-box register">
                 <form action="#">
                     <h2>Registrarse</h2>
 
-                    <div class="input-box">
-                        <span class="icon">
+                    <div class="entrada-box">
+                        <span class="icono">
                             <i class='bx bxs-user'></i>
                         </span>
                         <input type="text" required autocomplete="off">
                         <label>Nombre</label>
                     </div>
 
-                    <div class="input-box">
-                        <span class="icon">
+                    <div class="entrada-box">
+                        <span class="icono">
                             <i class='bx bxs-envelope'></i>
                         </span>
                         <input type="email" required autocomplete="off">
                         <label>Email</label>
                     </div>
 
-                    <div class="input-box">
-                        <span class="icon">
+                    <div class="entrada-box">
+                        <span class="icono">
                             <i class='bx bxs-lock-alt'></i>
                         </span>
                         <input type="password" required autocomplete="off">
                         <label>Password</label>
                     </div>
 
-                    <div class="remember-forgot">
+                    <div class="recordar-forgot">
                         <label>
                             <input type="checkbox">
                             Acepta los Terminos y Condiciones
                         </label>
                     </div>
 
-                    <button type="submit" class="btn">Registrarse</button>
+                    <button type="submit" class="boton">Registrarse</button>
 
                     <div class="login-register">
                         <p>
@@ -145,6 +120,21 @@
             </div>
         </div>
     </div>
+
+    <script>
+        //INICIO DE SESION
+        const logregBox = document.querySelector('.login-box');
+        const loginLink = document.querySelector('.login-link');
+        const registerLink = document.querySelector('.register-link');
+
+        registerLink.addEventListener('click', () => {
+            logregBox.classList.add('activar');
+        });
+
+        loginLink.addEventListener('click', () => {
+            logregBox.classList.remove('activar');
+        });
+    </script>
 
     <script src="~/js/site.js"></script>
 </body>

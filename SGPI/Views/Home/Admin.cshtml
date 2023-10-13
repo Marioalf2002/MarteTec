@@ -1,0 +1,145 @@
+﻿@{
+    ViewData["Title"] = "Admin";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- DataTables -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" />
+
+    <!--TITULO PAGINA-->
+    <title>@ViewData["Title"] - Marte~Tec</title>
+</head>
+<body>
+    <!-- DASHBOARD -->
+    <section class="seccion">
+        <h1>
+            ADMISTRADOR
+        </h1>
+    </section>
+    <section class="seccion">
+        <form class="row g-3">
+            <div class="col-md-6">
+                <label for="inputprimernombre" class="texto form-label">Primer Nombre</label>
+                <input type="text" class="form-control" id="inputprimernombre" required>
+            </div>
+            <div class="col-md-6">
+                <label for="inputsegundonombre" class="texto form-label">Segundo Nombre</label>
+                <input type="text" class="form-control" id="inputsegundonombre">
+            </div>
+            <div class="col-md-6">
+                <label for="inputprimerapellido" class="texto form-label">Primer Apellido</label>
+                <input type="text" class="form-control" id="inputprimerapellido" required>
+            </div>
+            <div class="col-md-6">
+                <label for="inputsegundoapellido" class="texto form-label">Segundo Apellido</label>
+                <input type="text" class="form-control" id="inputsegundoapellido">
+            </div>
+            <div class="col-md-6">
+                <label for="inputEmail" class="texto form-label">Email</label>
+                <input type="email" class="form-control" id="inputEmail" required>
+            </div>
+            <div class="col-md-6">
+                <label for="inputPassword" class="texto form-label">Contraseña</label>
+                <input type="password" class="form-control" id="inputPassword" required>
+            </div>
+            <div class="col-md-6">
+                <label for="inputtipodocumento" class="texto form-label">Tipo Documento</label>
+                <select id="inputtipodocumento" class="form-select">
+                    <option selected>Seleccionar...</option>
+                    <option>C.C</option>
+                    <option>C.E</option>
+                    <option>T.I</option>
+                    <option>Pasaporte</option>
+                </select>
+            </div>
+            <div class="col-6">
+                <label for="inputdocumento" class="texto form-label">Numero Documento</label>
+                <input type="text" class="form-control" id="inputdocumento" placeholder="No" required>
+            </div>
+            <div class="col-md-6">
+                <label for="inputsexo" class="texto form-label">Sexo</label>
+                <select id="inputsexo" class="form-select">
+                    <option selected>Seleccionar...</option>
+                    <option>Hombre</option>
+                    <option>Mujer</option>
+                    <option>38 Tipos de Gay y Sebastian</option>
+                    <option>Otros</option>
+                </select>
+            </div>
+            <div class="col-6">
+                <label for="inputrol" class="texto form-label">Rol</label>
+                <select id="inputrol" class="form-select">
+                    <option selected>Seleccionar...</option>
+                    <option>Administrador</option>
+                    <option>Coordinador</option>
+                    <option>Estudiante</option>
+                </select>
+            </div>
+            <div class="col-md-12">
+                <label for="inputprograma" class="texto form-label">Programa</label>
+                <select id="inputprograma" class="form-select">
+                    <option selected>Seleccionar...</option>
+                    <option>Maestria en Ingenieria</option>
+                    <option>Especializacion Big Data</option>
+                    <option>Maestria en Cincias Computacionales</option>
+                </select>
+            </div>
+            <div class="col-4">
+                <button type="submit" class="boton-form btn btn-primary">Editar</button>
+            </div>
+            <div class="col-4">
+                <button type="submit" class="boton-form btn btn-primary">Agregar</button>
+            </div>
+            <div class="col-4">
+                <button type="submit" class="boton-form btn btn-primary">Eliminar</button>
+            </div>
+
+        </form>
+    </section>
+    <section class="seccion">
+        <div class="dashboard-container_tables my-4">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <table class="table table-striped" id="datatable_users">
+                        <thead>
+                            <tr>
+                                <th class="centered">ID</th>
+                                <th class="centered">nombre</th>
+                                <th class="centered">Email</th>
+                                <th class="centered">Ciudad</th>
+                                <th class="centered">Compañia</th>
+                                <th class="centered">Status</th>
+                                <th class="centered">Options</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody_users">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    @*JS*@
+    <script src="~/js/database.js"></script>
+
+    <!-- BOOTSTRAP -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <!-- JQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- DataTable -->
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+</body>
+</html>
