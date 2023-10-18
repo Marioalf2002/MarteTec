@@ -1,5 +1,7 @@
-﻿@{
+﻿
+@{
     ViewData["Title"] = "Inicio";
+    Layout = "_Layout";
 }
 
 <!DOCTYPE html>
@@ -34,10 +36,13 @@
             </div>
         </div>
         <div class="login-box">
+
+            @*FORMULARIO DE LOGIN*@
             <div class="formulario-box login">
-                <form action="#">
+                <form method="post">
                     <h2>Iniciar Sesion</h2>
 
+                    @*CAMPO DE ENTRADA PARA CORREO*@
                     <div class="entrada-box">
                         <span class="icono">
                             <i class='bx bxs-envelope'></i>
@@ -46,6 +51,7 @@
                         <label>Email</label>
                     </div>
 
+                    @*CAMPO DE ENTRADA PARA CONTRASEÑA*@
                     <div class="entrada-box">
                         <span class="icono">
                             <i class='bx bxs-lock-alt'></i>
@@ -54,6 +60,7 @@
                         <label>Password</label>
                     </div>
 
+                    @*CAMPO DE ENTRADA PARA CHEKBOX RECORDAR*@
                     <div class="recordar-forgot">
                         <label>
                             <input type="checkbox">
@@ -62,21 +69,25 @@
                         <a href="#">¿Olvidaste Contraseña?</a>
                     </div>
 
+                    @*BOTON PARA INCIAR SESION*@
                     <button type="submit" class="boton">Iniciar Sesión</button>
 
-                    <div class="login-register">
+                    @*CAMPO PARA IR A FORMULARIO REGISTRARSE*@
+                    @*<div class="login-register">
                         <p>
                             ¿No tienes una Cuenta?
                             <a href="#" class="register-link">Registrase</a>
                         </p>
-                    </div>
+                    </div>*@
                 </form>
             </div>
 
-            <div class="formulario-box register">
-                <form action="#">
+           @*FORMULARIO DE REGISTRO*@
+            @*<div class="formulario-box register">
+                <form method="post">
                     <h2>Registrarse</h2>
 
+                    <!--CAMPO DE ENTRADA PARA NOMBRE-->
                     <div class="entrada-box">
                         <span class="icono">
                             <i class='bx bxs-user'></i>
@@ -85,6 +96,7 @@
                         <label>Nombre</label>
                     </div>
 
+                    <!--CAMPO DE ENTRADA PARA CORREO-->
                     <div class="entrada-box">
                         <span class="icono">
                             <i class='bx bxs-envelope'></i>
@@ -93,6 +105,7 @@
                         <label>Email</label>
                     </div>
 
+                    <!--CAMPO DE ENTRADA PARA CONTRASEÑA-->
                     <div class="entrada-box">
                         <span class="icono">
                             <i class='bx bxs-lock-alt'></i>
@@ -101,6 +114,7 @@
                         <label>Password</label>
                     </div>
 
+                    <!--CAMPO DE ENTRADA PARA CHECKBOX TERMINOS Y CONDIIONES-->
                     <div class="recordar-forgot">
                         <label>
                             <input type="checkbox">
@@ -108,8 +122,10 @@
                         </label>
                     </div>
 
+                    <!--BOTON PARA REGISTRARSE-->
                     <button type="submit" class="boton">Registrarse</button>
 
+                    <!--CAMPO PARA IR A FORMULARIO INICIAR SESION-->
                     <div class="login-register">
                         <p>
                             ¿Si Tengo una Cuenta?
@@ -117,7 +133,7 @@
                         </p>
                     </div>
                 </form>
-            </div>
+            </div>*@
         </div>
     </div>
 

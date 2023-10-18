@@ -1,5 +1,8 @@
-﻿@{
-    ViewData["Title"] = "Admin";
+﻿@model SGPI.Models.Usuario
+
+@{
+    ViewData["Title"] = "ADMISTRADOR";
+    Layout = "_Layout";
 }
 
 <!DOCTYPE html>
@@ -8,51 +11,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- BOOTSTRAP -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
-    <!-- DataTables -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" />
-
     <!--TITULO PAGINA-->
     <title>@ViewData["Title"] - Marte~Tec</title>
 </head>
 <body>
     <!-- DASHBOARD -->
+    @*TITULO*@
     <section class="seccion">
         <h1>
-            ADMISTRADOR
+            @ViewData["Title"]
         </h1>
     </section>
+    
+    @*FORMULARIO*@
     <section class="seccion">
         <form class="row g-3">
+            
+            @*CAMPO DE ENTRADA PARA PRIMER NOMBRE*@
             <div class="col-md-6">
-                <label for="inputprimernombre" class="texto form-label">Primer Nombre</label>
-                <input type="text" class="form-control" id="inputprimernombre" required>
+                <label asp-for="PrimerNombre" class="texto form-label">Primer Nombre</label>
+                <input type="text" class="form-control" asp-for="PrimerNombre" required>
             </div>
+            
+            @*CAMPO DE ENTRADA PARA SEGUNDO NOMBRE*@
             <div class="col-md-6">
-                <label for="inputsegundonombre" class="texto form-label">Segundo Nombre</label>
-                <input type="text" class="form-control" id="inputsegundonombre">
+                <label asp-for="SegundoNombre" class="texto form-label">Segundo Nombre</label>
+                <input type="text" class="form-control" asp-for="SegundoNombre">
             </div>
+
+            @*CAMPO DE ENTRADA PARA PRIMER APELLIDO*@
             <div class="col-md-6">
-                <label for="inputprimerapellido" class="texto form-label">Primer Apellido</label>
-                <input type="text" class="form-control" id="inputprimerapellido" required>
+                <label asp-for="PrimerApellido" class="texto form-label">Primer Apellido</label>
+                <input type="text" class="form-control" asp-for="PrimerApellido" required>
             </div>
+
+            @*CAMPO DE ENTRADA PARA SEGUNDO APELLIDO*@
             <div class="col-md-6">
-                <label for="inputsegundoapellido" class="texto form-label">Segundo Apellido</label>
-                <input type="text" class="form-control" id="inputsegundoapellido">
+                <label asp-for="SegundoApellido" class="texto form-label">Segundo Apellido</label>
+                <input type="text" class="form-control" asp-for="SegundoApellido">
             </div>
+
+            @*CAMPO DE ENTRADA PARA CORREO*@
             <div class="col-md-6">
-                <label for="inputEmail" class="texto form-label">Email</label>
-                <input type="email" class="form-control" id="inputEmail" required>
+                <label asp-for="Email" class="texto form-label">Email</label>
+                <input type="email" class="form-control" asp-for="Email" required>
             </div>
+
+            @*CAMPO DE ENTRADA PARA CONTRASEÑA*@
             <div class="col-md-6">
-                <label for="inputPassword" class="texto form-label">Contraseña</label>
-                <input type="password" class="form-control" id="inputPassword" required>
+                <label asp-for="Pass" class="texto form-label">Contraseña</label>
+                <input type="password" class="form-control" asp-for="Pass" required>
             </div>
+
+            @*CAMPO DE ENTRADA PARA TIPO DE DOCUMENTO*@
             <div class="col-md-6">
-                <label for="inputtipodocumento" class="texto form-label">Tipo Documento</label>
-                <select id="inputtipodocumento" class="form-select">
+                <label asp-for="Documento" class="texto form-label">Tipo Documento</label>
+                <select asp-for="Documento" class="form-select">
                     <option selected>Seleccionar...</option>
                     <option>C.C</option>
                     <option>C.E</option>
@@ -60,50 +74,69 @@
                     <option>Pasaporte</option>
                 </select>
             </div>
+
+            @*CAMPO DE ENTRADA PARA NUMERO DEL DOCUMENTO*@
             <div class="col-6">
-                <label for="inputdocumento" class="texto form-label">Numero Documento</label>
-                <input type="text" class="form-control" id="inputdocumento" placeholder="No" required>
+                <label asp-for="NumDoc" class="texto form-label">Numero Documento</label>
+                <input type="text" class="form-control" asp-for="NumDoc" placeholder="No" required>
             </div>
+
+            @*CAMPO DE ENTRADA PARA EL SEXO*@
             <div class="col-md-6">
-                <label for="inputsexo" class="texto form-label">Sexo</label>
-                <select id="inputsexo" class="form-select">
+                <label asp-for="Genero" class="texto form-label">Sexo</label>
+                @Html.DropDownList("Idgen", new SelectList(ViewBag.genero, "Idgen", "Descripcion"), new {@class="form-control dropdown"})
+                @*<select asp-for="Genero" class="form-select">
                     <option selected>Seleccionar...</option>
                     <option>Hombre</option>
                     <option>Mujer</option>
-                    <option>38 Tipos de Gay y Sebastian</option>
+                    <option>38 Tipos de Gay y Sebástian</option>
                     <option>Otros</option>
-                </select>
+                </select>*@
             </div>
+
+            @*CAMPO DE ENTRADA PARA EL ROL*@
             <div class="col-6">
-                <label for="inputrol" class="texto form-label">Rol</label>
-                <select id="inputrol" class="form-select">
-                    <option selected>Seleccionar...</option>
+                <label asp-for="Rol" class="texto form-label">Rol</label>
+                <select asp-for="Rol" class="form-select" placeholder="No">
+                    <option>Seleccionar...</option>
                     <option>Administrador</option>
                     <option>Coordinador</option>
                     <option>Estudiante</option>
                 </select>
             </div>
+
+            @*CAMPO DE ENTRADA PARA EL PROGRAMA*@
             <div class="col-md-12">
-                <label for="inputprograma" class="texto form-label">Programa</label>
-                <select id="inputprograma" class="form-select">
+                <label asp-for="Programa" class="texto form-label">Programa</label>
+                <select asp-for="Programa" class="form-select">
                     <option selected>Seleccionar...</option>
                     <option>Maestria en Ingenieria</option>
                     <option>Especializacion Big Data</option>
                     <option>Maestria en Cincias Computacionales</option>
                 </select>
             </div>
+
+            @*BOTONES PARA LAS ACCIONES A EJECUTAR*@
+
+            @*EDITAR*@
             <div class="col-4">
                 <button type="submit" class="boton-form btn btn-primary">Editar</button>
             </div>
+            
+            @*AGREGAR*@
             <div class="col-4">
                 <button type="submit" class="boton-form btn btn-primary">Agregar</button>
             </div>
+            
+            @*ELIMINAR*@
             <div class="col-4">
                 <button type="submit" class="boton-form btn btn-primary">Eliminar</button>
             </div>
 
         </form>
     </section>
+    
+    @*TABLA*@
     <section class="seccion">
         <div class="dashboard-container_tables my-4">
             <div class="row">
@@ -129,17 +162,7 @@
         </div>
     </section>
 
-    @*JS*@
-    <script src="~/js/database.js"></script>
-
-    <!-- BOOTSTRAP -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-
-    <!-- JQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
-    <!-- DataTable -->
-    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    @*JAVASCRIPT*@
+    <script src="~/js/database.js" asp-append-version="true"></script>
 </body>
 </html>
