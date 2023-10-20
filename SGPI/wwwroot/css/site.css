@@ -530,6 +530,22 @@
         padding-bottom: 50px;
     }
 
+    /* Cambia el color del texto de las opciones de la paginación y la búsqueda */
+    #datatable_users_paginate a, #datatable_users_filter label {
+        color: var(--negro);
+        font-weight: 500;
+    }
+
+    #datatable_users_length label {
+        color: var(--negro);
+        font-weight: 500;
+    }
+
+    #datatable_users_info {
+        color: var(--negro);
+        font-weight: 500;
+    }
+
     .seccion .botones {
         display: flex;
         align-items: center;
@@ -556,6 +572,13 @@
             transform: scale(1.05);
         }
 
+    .centered {
+        text-align: center !important;
+        vertical-align: middle !important;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
 .footer {
     position: fixed;
     bottom: 0;
@@ -573,8 +596,3 @@
     .footer .politica span {
         color: var(--amarillo);
     }
-
-.centered {
-    text-align: center !important;
-    vertical-align: middle !important;
-}

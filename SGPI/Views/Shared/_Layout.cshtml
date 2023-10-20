@@ -29,6 +29,8 @@
     <!--FAVICON-->
     <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon">
 
+    @await RenderSectionAsync("Estilos", required: false)
+
     <title>@ViewData["Title"] - SGPI</title>
 </head>
 <body>
