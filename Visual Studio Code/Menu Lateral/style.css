@@ -526,16 +526,24 @@
 
     .seccion .dashboard-container_tables{
         width: calc(100% - 10px);
+        padding-bottom: 50px;
+    }
+
+    .seccion .botones{
+        display: flex;
+        justify-content: center;
+        justify-items: center;
     }
 
     .seccion .boton-form{
         border-radius: 15px;
-        width: 100%;
+        width: 50%;
         background-color: var(--negro);
         color: var(--amarillo);
         border: solid 2px var(--blanco);
         font-weight: 500;
         font-size: 20px;
+        margin-top: 50px;
         transition: all .5s ease;
     }
 

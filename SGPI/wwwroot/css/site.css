@@ -527,9 +527,14 @@
 
     .seccion .dashboard-container_tables {
         width: calc(100% - 10px);
+        padding-bottom: 50px;
     }
 
-    .seccion .boton-form {
+    .seccion .botones{
+        padding-top: 50px;
+    }
+
+    .seccion .botones .boton-form {
         border-radius: 15px;
         width: 100%;
         background-color: var(--negro);
@@ -540,7 +545,7 @@
         transition: all .5s ease;
     }
 
-        .seccion .boton-form:hover {
+        .seccion .botones .boton-form:hover {
             background-color: var(--amarillo);
             color: var(--negro);
             border-color: var(--blanco);

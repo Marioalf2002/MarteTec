@@ -66,13 +66,14 @@
             @*CAMPO DE ENTRADA PARA TIPO DE DOCUMENTO*@
             <div class="col-md-6">
                 <label asp-for="Documento" class="texto form-label">Tipo Documento</label>
-                <select asp-for="Documento" class="form-select">
+                @Html.DropDownList("Iddoc", new SelectList(ViewBag.Doc, "Iddoc", "Descripcion"), new {@class="form-control dropdown"})
+                @*<select asp-for="Documento" class="form-select">
                     <option selected>Seleccionar...</option>
                     <option>C.C</option>
                     <option>C.E</option>
                     <option>T.I</option>
                     <option>Pasaporte</option>
-                </select>
+                </select>*@
             </div>
 
             @*CAMPO DE ENTRADA PARA NUMERO DEL DOCUMENTO*@
@@ -84,7 +85,7 @@
             @*CAMPO DE ENTRADA PARA EL SEXO*@
             <div class="col-md-6">
                 <label asp-for="Genero" class="texto form-label">Sexo</label>
-                @Html.DropDownList("Idgen", new SelectList(ViewBag.genero, "Idgen", "Descripcion"), new {@class="form-control dropdown"})
+                @Html.DropDownList("Idgen", new SelectList(ViewBag.Genero, "Idgen", "Descripcion"), new {@class="form-control dropdown"})
                 @*<select asp-for="Genero" class="form-select">
                     <option selected>Seleccionar...</option>
                     <option>Hombre</option>
@@ -97,41 +98,42 @@
             @*CAMPO DE ENTRADA PARA EL ROL*@
             <div class="col-6">
                 <label asp-for="Rol" class="texto form-label">Rol</label>
-                <select asp-for="Rol" class="form-select" placeholder="No">
+                @Html.DropDownList("Idrol", new SelectList(ViewBag.Rol, "Idrol", "Descripcion"), new {@class="form-control dropdown"})
+                @*<select asp-for="Rol" class="form-select" placeholder="No">
                     <option>Seleccionar...</option>
                     <option>Administrador</option>
                     <option>Coordinador</option>
                     <option>Estudiante</option>
-                </select>
+                </select>*@
             </div>
 
             @*CAMPO DE ENTRADA PARA EL PROGRAMA*@
             <div class="col-md-12">
                 <label asp-for="Programa" class="texto form-label">Programa</label>
-                <select asp-for="Programa" class="form-select">
+                @Html.DropDownList("Idprog", new SelectList(ViewBag.Prog, "Idprog", "Descripcion"), new {@class="form-control dropdown"})
+                @*<select asp-for="Programa" class="form-select">
                     <option selected>Seleccionar...</option>
                     <option>Maestria en Ingenieria</option>
                     <option>Especializacion Big Data</option>
                     <option>Maestria en Cincias Computacionales</option>
-                </select>
+                </select>*@
             </div>
 
             @*BOTONES PARA LAS ACCIONES A EJECUTAR*@
 
-            @*EDITAR*@
-            <div class="col-4">
-                <button type="submit" class="boton-form btn btn-primary">Editar</button>
+            @*BOTONES*@
+            <div class="botones">
+                @*EDITAR*@
+                <div class="col-6">
+                    <button type="submit" class="boton-form btn btn-primary">Editar</button>
+                </div>
+
+                @*AGREGAR*@
+                <div class="col-6">
+                    <button type="submit" class="boton-form btn btn-primary">Agregar</button>
+                </div>
             </div>
             
-            @*AGREGAR*@
-            <div class="col-4">
-                <button type="submit" class="boton-form btn btn-primary">Agregar</button>
-            </div>
-            
-            @*ELIMINAR*@
-            <div class="col-4">
-                <button type="submit" class="boton-form btn btn-primary">Eliminar</button>
-            </div>
 
         </form>
     </section>
@@ -163,6 +165,7 @@
     </section>
 
     @*JAVASCRIPT*@
+    <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/database.js" asp-append-version="true"></script>
 </body>
 </html>

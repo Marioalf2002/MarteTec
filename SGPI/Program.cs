@@ -10,6 +10,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddDbContext<SgpiContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("cadenaSQL"));
+});
+
 var app = builder.Build();  
 
 // Configure the HTTP request pipeline.
@@ -32,9 +37,3 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
-
-
-builder.Services.AddDbContext<SgpiContext>(options =>
-{
-    options.UseSqlServer(builder.Configuration.GetConnectionString("cadenaSQL"));
-});
