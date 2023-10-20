@@ -531,8 +531,12 @@
 
     .seccion .botones{
         display: flex;
+        align-items: center;
         justify-content: center;
-        justify-items: center;
+        /* background-color: #000000; */
+        margin-top: 50px;
+        margin-left: 150px;
+        
     }
 
     .seccion .boton-form{
@@ -543,7 +547,6 @@
         border: solid 2px var(--blanco);
         font-weight: 500;
         font-size: 20px;
-        margin-top: 50px;
         transition: all .5s ease;
     }
 

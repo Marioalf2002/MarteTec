@@ -66,7 +66,7 @@
             @*CAMPO DE ENTRADA PARA TIPO DE DOCUMENTO*@
             <div class="col-md-6">
                 <label asp-for="Documento" class="texto form-label">Tipo Documento</label>
-                @Html.DropDownList("Iddoc", new SelectList(ViewBag.Doc, "Iddoc", "Descripcion"), new {@class="form-control dropdown"})
+                @Html.DropDownList("Iddoc", new SelectList(ViewBag.Doc, "Iddoc", "Descripcion"), new {@class="form-select"})
                 @*<select asp-for="Documento" class="form-select">
                     <option selected>Seleccionar...</option>
                     <option>C.C</option>
@@ -85,7 +85,7 @@
             @*CAMPO DE ENTRADA PARA EL SEXO*@
             <div class="col-md-6">
                 <label asp-for="Genero" class="texto form-label">Sexo</label>
-                @Html.DropDownList("Idgen", new SelectList(ViewBag.Genero, "Idgen", "Descripcion"), new {@class="form-control dropdown"})
+                @Html.DropDownList("Idgen", new SelectList(ViewBag.Genero, "Idgen", "Descripcion"), new {@class="form-select"})
                 @*<select asp-for="Genero" class="form-select">
                     <option selected>Seleccionar...</option>
                     <option>Hombre</option>
@@ -98,7 +98,7 @@
             @*CAMPO DE ENTRADA PARA EL ROL*@
             <div class="col-6">
                 <label asp-for="Rol" class="texto form-label">Rol</label>
-                @Html.DropDownList("Idrol", new SelectList(ViewBag.Rol, "Idrol", "Descripcion"), new {@class="form-control dropdown"})
+                @Html.DropDownList("Idrol", new SelectList(ViewBag.Rol, "Idrol", "Descripcion"), new {@class="form-select"})
                 @*<select asp-for="Rol" class="form-select" placeholder="No">
                     <option>Seleccionar...</option>
                     <option>Administrador</option>
@@ -110,7 +110,7 @@
             @*CAMPO DE ENTRADA PARA EL PROGRAMA*@
             <div class="col-md-12">
                 <label asp-for="Programa" class="texto form-label">Programa</label>
-                @Html.DropDownList("Idprog", new SelectList(ViewBag.Prog, "Idprog", "Descripcion"), new {@class="form-control dropdown"})
+                @Html.DropDownList("Idprog", new SelectList(ViewBag.Prog, "Idprog", "Descripcion"), new {@class="form-select"})
                 @*<select asp-for="Programa" class="form-select">
                     <option selected>Seleccionar...</option>
                     <option>Maestria en Ingenieria</option>

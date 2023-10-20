@@ -530,13 +530,17 @@
         padding-bottom: 50px;
     }
 
-    .seccion .botones{
-        padding-top: 50px;
+    .seccion .botones {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 50px;
+        margin-left: 150px;
     }
 
-    .seccion .botones .boton-form {
+    .seccion .boton-form {
         border-radius: 15px;
-        width: 100%;
+        width: 50%;
         background-color: var(--negro);
         color: var(--amarillo);
         border: solid 2px var(--blanco);
