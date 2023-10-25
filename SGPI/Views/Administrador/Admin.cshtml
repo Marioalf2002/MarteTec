@@ -25,7 +25,8 @@
     
     @*FORMULARIO*@
     <section class="seccion">
-        <form class="row g-3">
+        @*METODO POST LLAMA UN METODO EN EL CONTROLLER*@
+        <form method="post" class="row g-3">
             
             @*CAMPO DE ENTRADA PARA PRIMER NOMBRE*@
             <div class="col-md-6">
@@ -66,7 +67,7 @@
             @*CAMPO DE ENTRADA PARA TIPO DE DOCUMENTO*@
             <div class="col-md-6">
                 <label asp-for="Documento" class="texto form-label">Tipo Documento</label>
-                @Html.DropDownList("Iddoc", new SelectList(ViewBag.Doc, "Iddoc", "Descripcion"), new {@class="form-select"})
+                @Html.DropDownList("Documento", new SelectList(ViewBag.Doc, "Iddoc", "Descripcion"), new {@class="form-select"})
                 @*<select asp-for="Documento" class="form-select">
                     <option selected>Seleccionar...</option>
                     <option>C.C</option>
@@ -85,7 +86,7 @@
             @*CAMPO DE ENTRADA PARA EL SEXO*@
             <div class="col-md-6">
                 <label asp-for="Genero" class="texto form-label">Sexo</label>
-                @Html.DropDownList("Idgen", new SelectList(ViewBag.Genero, "Idgen", "Descripcion"), new {@class="form-select"})
+                @Html.DropDownList("Genero", new SelectList(ViewBag.Genero, "Idgen", "Descripcion"), new {@class="form-select"})
                 @*<select asp-for="Genero" class="form-select">
                     <option selected>Seleccionar...</option>
                     <option>Hombre</option>
@@ -98,7 +99,7 @@
             @*CAMPO DE ENTRADA PARA EL ROL*@
             <div class="col-6">
                 <label asp-for="Rol" class="texto form-label">Rol</label>
-                @Html.DropDownList("Idrol", new SelectList(ViewBag.Rol, "Idrol", "Descripcion"), new {@class="form-select"})
+                @Html.DropDownList("Rol", new SelectList(ViewBag.Rol, "Idrol", "Descripcion"), new {@class="form-select"})
                 @*<select asp-for="Rol" class="form-select" placeholder="No">
                     <option>Seleccionar...</option>
                     <option>Administrador</option>
@@ -110,13 +111,21 @@
             @*CAMPO DE ENTRADA PARA EL PROGRAMA*@
             <div class="col-md-12">
                 <label asp-for="Programa" class="texto form-label">Programa</label>
-                @Html.DropDownList("Idprog", new SelectList(ViewBag.Prog, "Idprog", "Descripcion"), new {@class="form-select"})
+                @Html.DropDownList("Programa", new SelectList(ViewBag.Prog, "Idprog", "Descripcion"), new {@class="form-select"})
                 @*<select asp-for="Programa" class="form-select">
                     <option selected>Seleccionar...</option>
                     <option>Maestria en Ingenieria</option>
                     <option>Especializacion Big Data</option>
                     <option>Maestria en Cincias Computacionales</option>
                 </select>*@
+            </div>
+
+            @*CAMPO CHECKBOX*@
+            <div class="col-12">
+                <div class="form-check">
+                    <label class="texto form-check-label" for="gridCheck" asp-for="Activo">Activo / Inactivo</label>
+                    <input class="form-check-input" type="checkbox" asp-for="Activo">
+                </div>
             </div>
 
             @*BOTONES PARA LAS ACCIONES A EJECUTAR*@
@@ -133,8 +142,6 @@
                     <button type="submit" class="boton-form btn btn-primary">Agregar</button>
                 </div>
             </div>
-            
-
         </form>
     </section>
     
@@ -174,5 +181,6 @@
     @*JAVASCRIPT*@
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/database.js" asp-append-version="true"></script>
+
 </body>
 </html>

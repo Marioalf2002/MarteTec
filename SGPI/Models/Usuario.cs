@@ -11,9 +11,9 @@ public partial class Usuario
 
     public string? SegundoNombre { get; set; }
 
-    public string PrimerApellido { get; set; } = null!;
+    public string PrimerApellido { get; set; } 
 
-    public string? SegundoApellido { get; set; }
+    public string? SegundoApellido { get; set; } = null!;
 
     public int NumDoc { get; set; }
 
