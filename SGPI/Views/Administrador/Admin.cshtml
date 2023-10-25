@@ -26,7 +26,7 @@
     @*FORMULARIO*@
     <section class="seccion">
         @*METODO POST LLAMA UN METODO EN EL CONTROLLER*@
-        <form method="post" class="row g-3">
+        <form  method="post" class="row g-3">
             
             @*CAMPO DE ENTRADA PARA PRIMER NOMBRE*@
             <div class="col-md-6">
@@ -139,7 +139,7 @@
 
                 @*AGREGAR*@
                 <div class="col-6">
-                    <button type="submit" class="boton-form btn btn-primary">Agregar</button>
+                    <button asp-controller="Administrador" asp-action="AgregarUsuario" type="submit" class="boton-form btn btn-primary">Agregar</button>
                 </div>
             </div>
         </form>

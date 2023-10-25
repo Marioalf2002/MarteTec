@@ -39,20 +39,50 @@ namespace SGPI.Controllers
 
         //METODO QUE SE ACTIVARA MEDIANTE EL POST
         [HttpPost]
-        public IActionResult Admin(Usuario usuario)
+        public IActionResult AgregarUsuario(Usuario usuario)
         {
-            //ID DEL USUARIO TOMA EL VALOR DEL NUMERO DEL DOCUMENTO DEL MISMO
-            usuario.Iduser = usuario.NumDoc;
+            //SE VERIFICIA QUE ESTEMOS RECIVIENDO EL NUMERO DE DOCUMENTO
+            if (usuario.NumDoc == null)
+            {
+                return NotFound(); // Devolver un error si no se encuentra el usuario
+            }
+            else
+            {
+                //ID DEL USUARIO TOMA EL VALOR DEL NUMERO DEL DOCUMENTO DEL MISMO
+                usuario.Iduser = usuario.NumDoc;
 
-            //SE GUARDA LA LISTA ENVIADA POR EL FORMULARIO MEDIANTE POST CON LOS DATOS
-            _context.Add(usuario);
-            _context.SaveChanges();
+                //SE GUARDA LA LISTA ENVIADA POR EL FORMULARIO MEDIANTE POST CON LOS DATOS
+                _context.Add(usuario);
+                _context.SaveChanges();
+            }
 
             //CARGA NUEVAMENTE EL METODO ADMIN() QUE CONTIENE LAS LISTAS QUE TRAEN LOS DATOS DE LAS TABLAS REQUERIAS EN LOS DropDownList
             Admin();
 
             return View();
         }
+
+        //METODO DE ELIMINACION DE USUARIO
+        [HttpPost]
+        public IActionResult EliminarUsuario(int id)
+        {
+            // Buscar el usuario por su ID
+            var usuario = _context.Usuarios.Find(id);
+
+            if (usuario == null)
+            {
+                return NotFound(); // Devolver un error si no se encuentra el usuario
+            }
+            else
+            {
+                // Eliminar el usuario de la base de datos
+                _context.Usuarios.Remove(usuario);
+                _context.SaveChanges();
+            }
+
+            return RedirectToAction("Admin"); // Redirigir a la página de administración después de la eliminación
+        }
+
 
         //METODO QUE TRAE LOS DATOS NECESARIO PARA MOSTRAR EN LA TABLA
         [HttpGet]

@@ -77,6 +77,12 @@ public partial class SgpiContext : DbContext
                 .HasConstraintName("FK_Asignatura_Programa");
         });
 
+
+        modelBuilder.Entity<Usuario>()
+            .HasMany(u => u.Pagos)
+            .WithOne(p => p.IdUserNavigation)
+            .OnDelete(DeleteBehavior.Cascade);
+
         modelBuilder.Entity<Documento>(entity =>
         {
             entity.HasKey(e => e.Iddoc);

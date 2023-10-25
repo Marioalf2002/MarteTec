@@ -44,6 +44,24 @@ const initDataTable = async () => {
     dataTableIsInitialized = true;
 };
 
+const eliminarUsuario = async (idUsuario) => {
+    try {
+        const response = await fetch(`/Administrador/EliminarUsuario?id=${idUsuario}`, {
+            method: 'POST'
+        });
+
+        if (response.ok) {
+            // Actualizar la tabla después de eliminar el usuario
+            await listUsers();
+        } else {
+            // Manejar el caso en el que la eliminación no tenga éxito
+            alert("Error al eliminar el usuario.");
+        }
+    } catch (ex) {
+        alert(ex);
+    }
+};
+
 const listUsers = async () => {
     try {
         const response = await fetch("https://localhost:7020/Administrador/ListaUsuarios");
@@ -70,12 +88,22 @@ const listUsers = async () => {
                     <td>${user.pass}</td>
                     <td>${user.activo ? '<i class="bx bx-check" style="color: green;"></i>' : '<i class="bx bx-x" style="color: red;"></i>'}</td>
                     <td>
-                        <button class="btn btn-sm btn-primary"><i class="bx bxs-pencil"></i></button>
-                        <button class="btn btn-sm btn-danger"><i class="bx bxs-trash"></i></button>
+                        <button class="btn btn-sm btn-primary editar-usuario" data-id="${user.iduser}"><i class="bx bxs-pencil"></i></button>
+                        <button class="btn btn-sm btn-danger eliminar-usuario" data-id="${user.iduser}"><i class="bx bxs-trash"></i></button>
                     </td>
                 </tr>`;
         });
         tableBody_users.innerHTML = content;
+
+        // Manejar el clic en el botón de eliminación
+        const botonesEliminar = document.querySelectorAll('.eliminar-usuario');
+        botonesEliminar.forEach(boton => {
+            boton.addEventListener('click', () => {
+                const idUsuario = boton.getAttribute('data-id');
+                eliminarUsuario(idUsuario);
+            });
+        });
+
     } catch (ex) {
         alert(ex);
     }
