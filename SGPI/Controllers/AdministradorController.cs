@@ -83,6 +83,36 @@ namespace SGPI.Controllers
             return RedirectToAction("Admin"); // Redirigir a la página de administración después de la eliminación
         }
 
+        //METODO QUE VA OBTENER AL USUARIO PARA MODIFICACION
+        [HttpGet]
+        public JsonResult ObtenerUsuario(int id)
+        {
+            // Buscar el usuario por su ID
+            var usuario = _context.Usuarios.Find(id);
+            return Json(usuario);
+        }
+
+        //METOOD QUE MODIFICARA AL USUARIO
+        [HttpPost]
+        public IActionResult EditarUsuario(Usuario usuario)
+        {
+            Console.WriteLine(usuario.NumDoc);
+            if (usuario.NumDoc == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                //ID DEL USUARIO TOMA EL VALOR DEL NUMERO DEL DOCUMENTO DEL MISMO
+                usuario.Iduser = usuario.NumDoc;
+                _context.Update(usuario);
+                _context.SaveChanges();
+            }
+
+            // Cargar nuevamente los datos de la tabla después de la edición
+            return RedirectToAction("Admin");
+        }
+
 
         //METODO QUE TRAE LOS DATOS NECESARIO PARA MOSTRAR EN LA TABLA
         [HttpGet]

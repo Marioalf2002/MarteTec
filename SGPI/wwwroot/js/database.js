@@ -62,6 +62,35 @@ const eliminarUsuario = async (idUsuario) => {
     }
 };
 
+//CARGAR USUARIO PARA EDICION
+const cargarUsuario = async (idUsuario) => {
+    try {
+        const response = await fetch(`/Administrador/ObtenerUsuario?id=${idUsuario}`);
+        if (response.ok) {
+            const usuario = await response.json();
+
+            // Rellenar el formulario con los datos del usuario
+            document.getElementById('PrimerNombre').value = usuario.primerNombre;
+            document.getElementById('SegundoNombre').value = usuario.segundoNombre;
+            document.getElementById('PrimerApellido').value = usuario.primerApellido;
+            document.getElementById('SegundoApellido').value = usuario.segundoApellido;
+            document.getElementById('Email').value = usuario.email;
+            document.getElementById('Pass').value = usuario.pass;
+            document.getElementById('Documento').value = usuario.documento;
+            document.getElementById('NumDoc').value = usuario.numDoc;
+            document.getElementById('Genero').value = usuario.genero;
+            document.getElementById('Rol').value = usuario.rol;
+            document.getElementById('Programa').value = usuario.programa;
+            document.getElementById('Activo').checked = usuario.activo;
+
+        } else {
+            alert("Error al cargar el usuario.");
+        }
+    } catch (ex) {
+        alert(ex);
+    }
+};
+
 const listUsers = async () => {
     try {
         const response = await fetch("https://localhost:7020/Administrador/ListaUsuarios");
@@ -101,6 +130,15 @@ const listUsers = async () => {
             boton.addEventListener('click', () => {
                 const idUsuario = boton.getAttribute('data-id');
                 eliminarUsuario(idUsuario);
+            });
+        });
+
+        // Agregar el evento clic a los botones de "Editar usuario"
+        const botonesEditar = document.querySelectorAll('.editar-usuario');
+        botonesEditar.forEach(boton => {
+            boton.addEventListener('click', () => {
+                const idUsuario = boton.getAttribute('data-id');
+                cargarUsuario(idUsuario);
             });
         });
 

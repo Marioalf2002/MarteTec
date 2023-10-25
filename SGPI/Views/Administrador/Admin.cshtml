@@ -80,7 +80,7 @@
             @*CAMPO DE ENTRADA PARA NUMERO DEL DOCUMENTO*@
             <div class="col-6">
                 <label asp-for="NumDoc" class="texto form-label">Numero Documento</label>
-                <input type="text" class="form-control" asp-for="NumDoc" placeholder="No" required>
+                <input type="text" class="form-control" asp-for="NumDoc" placeholder="N°" required>
             </div>
 
             @*CAMPO DE ENTRADA PARA EL SEXO*@
@@ -134,7 +134,7 @@
             <div class="botones">
                 @*EDITAR*@
                 <div class="col-6">
-                    <button type="submit" class="boton-form btn btn-primary">Editar</button>
+                    <button asp-controller="Administrador" asp-action="EditarUsuario" type="submit" class="boton-form btn btn-primary">Editar</button>
                 </div>
 
                 @*AGREGAR*@
