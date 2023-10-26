@@ -11,7 +11,7 @@ public partial class Pago
 
     public string Recibo { get; set; } = null!;
 
-    public int IdUser { get; set; }
+    public long IdUser { get; set; }
 
     public double Valor { get; set; }
 

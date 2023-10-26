@@ -128,18 +128,24 @@
                 </div>
             </div>
 
+
+            @*CAMPO OCULTO PARA ID*@
+            <div class="col-6">
+                <input type="hidden" class="form-control" asp-for="Iduser" placeholder="ID" required>
+            </div>
+
             @*BOTONES PARA LAS ACCIONES A EJECUTAR*@
 
             @*BOTONES*@
             <div class="botones">
                 @*EDITAR*@
                 <div class="col-6">
-                    <button asp-controller="Administrador" asp-action="EditarUsuario" type="submit" class="boton-form btn btn-primary">Editar</button>
+                    <button id="btnEditar" asp-controller="Administrador" asp-action="EditarUsuario" type="submit" class="boton-form btn btn-primary" style="display: none;">Editar</button>
                 </div>
 
                 @*AGREGAR*@
                 <div class="col-6">
-                    <button asp-controller="Administrador" asp-action="AgregarUsuario" type="submit" class="boton-form btn btn-primary">Agregar</button>
+                    <button id="btnAgregar" asp-controller="Administrador" asp-action="AgregarUsuario" type="submit" class="boton-form btn btn-primary" style="@(TempData["EdicionExitosa"] == null || (bool)TempData["EdicionExitosa"] ? "display: block;" : "display: none;")">Agregar</button>
                 </div>
             </div>
         </form>
@@ -153,6 +159,8 @@
                     <table class="table table-striped" id="datatable_users">
                         <thead>
                             <tr>
+                                <th class="centered">Opciones</th>
+                                <th class="centered">Activo</th>
                                 <th class="centered">ID</th>
                                 <th class="centered">Primer Nombre</th>
                                 <th class="centered">Segundo Nombre</th>
@@ -165,8 +173,6 @@
                                 <th class="centered">Rol</th>
                                 <th class="centered">Email</th>
                                 <th class="centered">Contraseña</th>
-                                <th class="centered">Activo</th>
-                                <th class="centered">Opciones</th>
                             </tr>
                         </thead>
                         <tbody id="tableBody_users">

@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using Microsoft.EntityFrameworkCore.SqlServer.Query.Internal;
 
+
 namespace SGPI.Controllers
 {
     public class AdministradorController : Controller
@@ -37,34 +38,35 @@ namespace SGPI.Controllers
             return View();
         }
 
-        //METODO QUE SE ACTIVARA MEDIANTE EL POST
+        //METODO PARA AGREGAR AL USUARIO
         [HttpPost]
         public IActionResult AgregarUsuario(Usuario usuario)
         {
-            //SE VERIFICIA QUE ESTEMOS RECIVIENDO EL NUMERO DE DOCUMENTO
-            if (usuario.NumDoc == null)
+            DateTime fecha = DateTime.Now;
+            long Fecha = long.Parse(fecha.ToString("yyyyMMddHHmmss")); // Esto contendrá año, mes, día, hora, minutos y segundos
+
+            //SE VERIFICIA SE ESTAN TOMANDO LOS VALORES CORRECTAMENTE
+            if (Fecha == 0)
             {
                 return NotFound(); // Devolver un error si no se encuentra el usuario
             }
             else
             {
-                //ID DEL USUARIO TOMA EL VALOR DEL NUMERO DEL DOCUMENTO DEL MISMO
-                usuario.Iduser = usuario.NumDoc;
+                //ID DEL USUARIO TOMA EL VALOR DE FECHA Y HORA
+                usuario.Iduser = Fecha;
 
                 //SE GUARDA LA LISTA ENVIADA POR EL FORMULARIO MEDIANTE POST CON LOS DATOS
                 _context.Add(usuario);
                 _context.SaveChanges();
             }
 
-            //CARGA NUEVAMENTE EL METODO ADMIN() QUE CONTIENE LAS LISTAS QUE TRAEN LOS DATOS DE LAS TABLAS REQUERIAS EN LOS DropDownList
-            Admin();
-
-            return View();
+            //CARGA NUEVAMENTE EL METODO ADMIN QUE CONTIENE LAS LISTAS QUE TRAEN LOS DATOS DE LAS TABLAS REQUERIAS EN LOS DropDownList
+            return RedirectToAction("Admin");
         }
 
         //METODO DE ELIMINACION DE USUARIO
         [HttpPost]
-        public IActionResult EliminarUsuario(int id)
+        public IActionResult EliminarUsuario(long id)
         {
             // Buscar el usuario por su ID
             var usuario = _context.Usuarios.Find(id);
@@ -85,7 +87,7 @@ namespace SGPI.Controllers
 
         //METODO QUE VA OBTENER AL USUARIO PARA MODIFICACION
         [HttpGet]
-        public JsonResult ObtenerUsuario(int id)
+        public JsonResult ObtenerUsuario(long id)
         {
             // Buscar el usuario por su ID
             var usuario = _context.Usuarios.Find(id);
@@ -96,17 +98,18 @@ namespace SGPI.Controllers
         [HttpPost]
         public IActionResult EditarUsuario(Usuario usuario)
         {
-            Console.WriteLine(usuario.NumDoc);
-            if (usuario.NumDoc == null)
+            if (usuario.Iduser == 0)
             {
+                // Indicar que la edición no se realizó
+                TempData["EdicionExitosa"] = false;
                 return NotFound();
             }
             else
             {
-                //ID DEL USUARIO TOMA EL VALOR DEL NUMERO DEL DOCUMENTO DEL MISMO
-                usuario.Iduser = usuario.NumDoc;
                 _context.Update(usuario);
                 _context.SaveChanges();
+                // Indicar que la edición se realizó con éxito
+                TempData["EdicionExitosa"] = true;
             }
 
             // Cargar nuevamente los datos de la tabla después de la edición
@@ -132,7 +135,7 @@ namespace SGPI.Controllers
                     {
                         lista.Add(new TablaAdmistrador
                         {
-                            Iduser = Convert.ToInt32(dr["Iduser"]),
+                            Iduser = (long)dr["Iduser"],
                             PrimerNombre = dr["PrimerNombre"].ToString(),
                             SegundoNombre = dr["SegundoNombre"].ToString(),
                             PrimerApellido = dr["PrimerApellido"].ToString(),

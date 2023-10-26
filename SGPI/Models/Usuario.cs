@@ -5,7 +5,7 @@ namespace SGPI.Models;
 
 public partial class Usuario
 {
-    public int Iduser { get; set; }
+    public long Iduser { get; set; }
 
     public string PrimerNombre { get; set; } = null!;
 

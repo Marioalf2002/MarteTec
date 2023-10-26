@@ -11,7 +11,7 @@ public partial class Homologacion
 
     public int Idasig { get; set; }
 
-    public int Iduser { get; set; }
+    public long Iduser { get; set; }
 
     public int Tipodoc { get; set; }
 

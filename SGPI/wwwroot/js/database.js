@@ -3,8 +3,6 @@ let dataTable;
 let dataTableIsInitialized = false;
 
 const dataTableOptions = {
-    /*dom: "<'controles-busqueda'fr>t<'row'<'col-sm-12 col-md-12 col-lg-12 col-xl-12'p>>", *//*// Esta es la línea que se agrega*/
-
     scrollX: "2000px",
     lengthMenu: [5, 10, 15, 20],
     columnDefs: [
@@ -70,6 +68,7 @@ const cargarUsuario = async (idUsuario) => {
             const usuario = await response.json();
 
             // Rellenar el formulario con los datos del usuario
+            document.getElementById("Iduser").value = usuario.iduser;
             document.getElementById('PrimerNombre').value = usuario.primerNombre;
             document.getElementById('SegundoNombre').value = usuario.segundoNombre;
             document.getElementById('PrimerApellido').value = usuario.primerApellido;
@@ -82,6 +81,12 @@ const cargarUsuario = async (idUsuario) => {
             document.getElementById('Rol').value = usuario.rol;
             document.getElementById('Programa').value = usuario.programa;
             document.getElementById('Activo').checked = usuario.activo;
+
+            // Cambiar el botón "Agregar" por "Editar" y configurar el evento de edición
+            const botonAgregar = document.querySelector('button[asp-action="AgregarUsuario"]');
+            botonAgregar.textContent = "Editar";
+            botonAgregar.removeEventListener('click', agregarUsuario); // Remover el evento anterior si es necesario
+            botonAgregar.addEventListener('click', () => editarUsuario(idUsuario));
 
         } else {
             alert("Error al cargar el usuario.");
@@ -103,23 +108,23 @@ const listUsers = async () => {
         users.forEach((user, index) => {
             content += `
                 <tr>
-                    <td>${user.iduser}</td>
-                    <td>${user.primerNombre}</td>
-                    <td>${user.segundoNombre}</td>
-                    <td>${user.primerApellido}</td>
-                    <td>${user.segundoApellido}</td>
-                    <td>${user.documento}</td>
-                    <td>${user.numDoc}</td>
-                    <td>${user.genero}</td>
-                    <td>${user.programa}</td>
-                    <td>${user.rol}</td>
-                    <td>${user.email}</td>
-                    <td>${user.pass}</td>
-                    <td>${user.activo ? '<i class="bx bx-check" style="color: green;"></i>' : '<i class="bx bx-x" style="color: red;"></i>'}</td>
-                    <td>
+                    <td class="centered">
                         <button class="btn btn-sm btn-primary editar-usuario" data-id="${user.iduser}"><i class="bx bxs-pencil"></i></button>
                         <button class="btn btn-sm btn-danger eliminar-usuario" data-id="${user.iduser}"><i class="bx bxs-trash"></i></button>
                     </td>
+                    <td class="centered">${user.activo ? '<i class="bx bx-check" style="color: green;"></i>' : '<i class="bx bx-x" style="color: red;"></i>'}</td>
+                    <td class="centered">${user.iduser}</td>
+                    <td class="centered">${user.primerNombre}</td>
+                    <td class="centered">${user.segundoNombre}</td>
+                    <td class="centered">${user.primerApellido}</td>
+                    <td class="centered">${user.segundoApellido}</td>
+                    <td class="centered">${user.documento}</td>
+                    <td class="centered">${user.numDoc}</td>
+                    <td class="centered">${user.genero}</td>
+                    <td class="centered">${user.programa}</td>
+                    <td class="centered">${user.rol}</td>
+                    <td class="centered">${user.email}</td>
+                    <td class="centered">${user.pass}</td>
                 </tr>`;
         });
         tableBody_users.innerHTML = content;
@@ -139,6 +144,12 @@ const listUsers = async () => {
             boton.addEventListener('click', () => {
                 const idUsuario = boton.getAttribute('data-id');
                 cargarUsuario(idUsuario);
+
+                // Ocultar el botón "Agregar" cuando se haga clic en "Editar"
+                document.getElementById('btnAgregar').style.display = 'none';
+
+                // Mostrar el botón "Editar"
+                document.getElementById('btnEditar').style.display = 'block';
             });
         });
 
